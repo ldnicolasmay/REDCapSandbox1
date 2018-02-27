@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-source('config.R') # contains API URL and API token
+source("config.R") # contains API URL and API token
 library(redcapAPI)
 library(RCurl)
 library(jsonlite)
@@ -42,9 +42,9 @@ exportVersion(rcon)
 
 if (FALSE){
   # exportBundle(rcon = rcon)
-  report <- exportReports(rcon = rcon, report_id = '1680', 
-                          factors = TRUE, labels = TRUE, dates = TRUE)
-  save(report, file = "report.Rdata")
+  # report <- exportReports(rcon = rcon, report_id = 1680, 
+  #                         factors = TRUE, labels = TRUE, dates = TRUE)
+  # save(report, file = "report.Rdata")
 }
 print(report)
 class(report)

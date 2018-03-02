@@ -8,3 +8,4 @@ config.R
 *.csv
 *.xlsx
 *.xls
+my_metadata.Rda

@@ -33,17 +33,19 @@ print(result_json)
 
 
 
-# library(redcapAPI)
-
+library(redcapAPI)
 # Only getting an error using the redcapAPI
 # I'm just going to stick to using RCurl + jsonlite
-# rcon <- redcapConnection(url = api_url, token = api_token)
-# report <- exportReports(rcon = rcon, report_id = '1680') # Doesn't work
-# report <- exportReports(rcon = rcon, report_id = '1680', 
-#                         factors = TRUE, labels = TRUE, 
-#                         dates = TRUE, checkboxLabels = FALSE)
-# exportProjectInformation(rcon)
-# exportVersion(rcon)
+rcon <- redcapConnection(url = api_url, token = api_token)
+report <- exportReports(rcon = rcon, report_id = '1680', labels = FALSE) # Works
+report <- exportReports(rcon = rcon, report_id = '1680', labels = TRUE)
+report <- exportReports(rcon = rcon, report_id = '1680',
+                        factors = TRUE, labels = TRUE,
+                        dates = TRUE, checkboxLabels = FALSE)
+my_metadata <- exportMetaData(rcon)
+save(my_metadata, file = "my_metadata.Rda")
+exportProjectInformation(rcon)
+exportVersion(rcon)
 
 # if (FALSE){
 #   exportBundle(rcon = rcon)

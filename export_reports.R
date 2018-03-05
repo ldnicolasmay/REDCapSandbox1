@@ -37,6 +37,7 @@ library(redcapAPI)
 # Only getting an error using the redcapAPI
 # I'm just going to stick to using RCurl + jsonlite
 rcon <- redcapConnection(url = api_url, token = api_token)
+report <- exportReports(rcon = rcon, report_id = 1680)
 report <- exportReports(rcon = rcon, report_id = '1680', labels = FALSE) # Works
 report <- exportReports(rcon = rcon, report_id = '1680', labels = TRUE)
 report <- exportReports(rcon = rcon, report_id = '1680',
